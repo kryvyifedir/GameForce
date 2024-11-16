@@ -75,7 +75,7 @@ public with sharing class ScoreHubConfig implements InstallHandler {
 	}
 
 	private Achievement__c initDefaultAchievementByName(String name, Map<String, Measurement__c> measurements) {
-		Achievement__c achievement = new Achievement__c(name = name);
+		Achievement__c achievement = new Achievement__c(Name = name);
 		if (name == Constants.CREATE_LEADS_1_NAME) {
 			achievement.Measurement__c = measurements.get(Constants.CREATED_LEADS_COUNTER_ID).Id;
 			achievement.UITitle__c = 'Sourcer';
