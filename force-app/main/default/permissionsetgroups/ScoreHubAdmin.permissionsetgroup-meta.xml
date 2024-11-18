@@ -6,6 +6,7 @@
     <permissionSets>SidebarApps__ScoreHubAccessNotificationUtility</permissionSets>
     <permissionSets>SidebarApps__ScoreHubApexClasses</permissionSets>
     <permissionSets>SidebarApps__ScoreHubAppAdminTabs</permissionSets>
+    <permissionSets>SidebarApps__ScoreHubAppConfigurationTab</permissionSets>
     <permissionSets>SidebarApps__ScoreHubAppLeaderboardsTab</permissionSets>
     <permissionSets>SidebarApps__ScoreHubAppPermisssion</permissionSets>
     <permissionSets>SidebarApps__ScoreHubModifyAchievements</permissionSets>

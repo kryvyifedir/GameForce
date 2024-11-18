@@ -17,6 +17,7 @@
     <tabs>ScoreHubHome</tabs>
     <tabs>Achievement__c</tabs>
     <tabs>Measurement__c</tabs>
+    <tabs>Configuration</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>ScoreHub_UtilityBar</utilityBar>
 </CustomApplication>
