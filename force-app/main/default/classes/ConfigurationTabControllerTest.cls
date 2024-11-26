@@ -1,25 +1,8 @@
 @IsTest(isParallel=true)
-private class ScoreHubConfigTest {
-	@IsTest
-	private static void onInstall_noRecordsExist_recordsCreated() {
-		// Given
-		InstallContext context;
-
-		// When
-		Test.startTest();
-		ScoreHubConfig config = new ScoreHubConfig();
-		config.onInstall(context);
-		Test.stopTest();
-
-		// Then
-		List<Measurement__c> result1 = [SELECT Id FROM Measurement__c];
-		Assert.areEqual(Constants.MEASUREMENT_UNIQUE_IDS.size(), result1.size(), '5 measurements are expected to be created');
-		List<Achievement__c> result2 = [SELECT Id FROM Achievement__c];
-		Assert.areEqual(Constants.ACHIEVEMENT_NAMES.size(), result2.size(), '18 achievements are expected to be created');
-	}
+private class ConfigurationTabControllerTest {
 
 	@IsTest
-	private static void initOrResetDefaultConfiguration_recordExistsAndWereChanged_recordResotred() {
+	private static void restoreDefaultAchievements_NoIssues_AchievementsRestored() {
 		// Given
 		Measurement__c defaultMeasurement = new Measurement__c();
 		defaultMeasurement.UniqueIdentifier__c = Constants.CHATTER_POSTS_COUNTER_ID;
@@ -41,8 +24,7 @@ private class ScoreHubConfigTest {
 
 		// When
 		Test.startTest();
-		ScoreHubConfig config = new ScoreHubConfig();
-		config.initOrResetDefaultConfiguration();
+		ConfigurationTabController.restoreDefaultAchievements();
 		Test.stopTest();
 
 		// Then
@@ -57,5 +39,22 @@ private class ScoreHubConfigTest {
 		Assert.areEqual('Standard Achievement, that can be reached by creating 10 posts in Chatter', achievementResult.Description__c, 'Default achievement is expected to be restored');
 		Assert.areEqual(10, achievementResult.Goal__c, 'Default achievement is expected to be restored');
 		Assert.areEqual(10, achievementResult.Score__c, 'Default achievement is expected to be restored');
+	}
+
+	@IsTest
+	private static void restoreDefaultAchievements_ExceptionThrown_ExceptionHandled() {
+		// Given
+		ConfigurationTabController.throwException = true;
+
+		// When
+		try {
+			Test.startTest();
+			Map<String, Object> result = ConfigurationTabController.restoreDefaultAchievements();
+			Test.stopTest();
+
+			// Then
+		} catch (Exception e) {
+			Assert.fail('Exception is expected to be handled safely');
+		}
 	}
 }
