@@ -200,4 +200,68 @@
         <shortDescription>You don&apos;t have access to ScoreHub</shortDescription>
         <value>It looks like you don&apos;t have access to ScoreHub functionality. Please contact your System Administrator for more details</value>
     </labels>
+    <labels>
+        <fullName>RestoreDefaultsConfirmation</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore Defaults Confirmation</shortDescription>
+        <value>Default Measurements and Achievements successfully restored</value>
+    </labels>
+    <labels>
+        <fullName>RestoreDefaultsException</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore Defaults Exception</shortDescription>
+        <value>Unable to restore default Measurements and Achievements</value>
+    </labels>
+    <labels>
+        <fullName>RestoreDefaultsHeader</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore Defaults Header</shortDescription>
+        <value>Restore default ScoreHub configuration</value>
+    </labels>
+    <labels>
+        <fullName>RestoreDefaultsHelptext</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore Defaults Helptext</shortDescription>
+        <value>This option allows you to restore default configuration of Measurements and Achievements. Note: Achievements that were created after ScoreHub installation (Custom Achievements) won&apos;t be changed or removed</value>
+    </labels>
+    <labels>
+        <fullName>Success</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>RestoreDefaultsConfirmDialogLabel</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore Defaults Confirm Dialog Label</shortDescription>
+        <value>Confirm action</value>
+    </labels>
+    <labels>
+        <fullName>RestoreDefaultsConfirmDialogMessage</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore Defaults Confirm Dialog Message</shortDescription>
+        <value>Are you sure you want to restore default Measurements and Achievements to their original values?</value>
+    </labels>
+    <labels>
+        <fullName>RestoreButtonLabel</fullName>
+        <categories>ScoreHub LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Restore Button Label</shortDescription>
+        <value>Restore</value>
+    </labels>
 </CustomLabels>

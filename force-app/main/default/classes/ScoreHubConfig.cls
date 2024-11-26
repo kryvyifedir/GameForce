@@ -110,7 +110,7 @@ public with sharing class ScoreHubConfig implements InstallHandler {
 			achievement.UIDescription__c = 'Converted 10 Leads';
 			achievement.Description__c = 'Standard Achievement, that can be reached by converting 10 different Leads to Accounts/Contacts/Opportunities';
 			achievement.Goal__c = 10;
-			achievement.Score__c = 1;
+			achievement.Score__c = 10;
 		} else if (name == Constants.CONVERTED_LEADS_2_NAME) {
 			achievement.Measurement__c = measurements.get(Constants.CONVERTED_LEADS_COUNTER_ID).Id;
 			achievement.UITitle__c = 'Transformer';
