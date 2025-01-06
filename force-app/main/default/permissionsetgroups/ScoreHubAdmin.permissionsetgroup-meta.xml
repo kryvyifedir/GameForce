@@ -13,6 +13,7 @@
     <permissionSets>SidebarApps__ScoreHubModifyLogs</permissionSets>
     <permissionSets>SidebarApps__ScoreHubModifyMeasurements</permissionSets>
     <permissionSets>SidebarApps__ScoreHubModifyReachedAchievements</permissionSets>
+    <permissionSets>SidebarApps__ScoreHubModifySeasonsStatistics</permissionSets>
     <permissionSets>SidebarApps__ScoreHubModifyUserMeasurements</permissionSets>
     <permissionSets>SidebarApps__ScoreHubPlatformEvents</permissionSets>
     <status>Updated</status>

@@ -12,6 +12,7 @@
     <permissionSets>SidebarApps__ScoreHubViewAchievements</permissionSets>
     <permissionSets>SidebarApps__ScoreHubViewMeasurements</permissionSets>
     <permissionSets>SidebarApps__ScoreHubViewReachedAchievements</permissionSets>
+    <permissionSets>SidebarApps__ScoreHubViewSeasonsStats</permissionSets>
     <permissionSets>SidebarApps__ScoreHubViewUserMeasurements</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

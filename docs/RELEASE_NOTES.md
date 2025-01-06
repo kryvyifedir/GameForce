@@ -1,6 +1,9 @@
 # ScoreHub Release Notes
 
 ## version 2.0.0.WIP
+### version 2.0.0.6
+- Adding new sObject and Custom Settings to store data for "Seasons" functionality
+
 ### version 2.0.0.4
 - Improving the User Card component to ensure that avatars with aspect ratios different from 1:1 are correctly displayed.
 
