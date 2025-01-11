@@ -33,4 +33,15 @@ public with sharing class DataWrappers {
 		@AuraEnabled
 		public String name { get; set; }
 	}
+
+	public class SeasonConfig {
+		@AuraEnabled
+		public Id id { get; set; }
+		@AuraEnabled
+		public Boolean isActive { get; set; }
+		@AuraEnabled
+		public String cadence { get; set; }
+		@AuraEnabled
+		public Date startDate { get; set; }
+	}
 }

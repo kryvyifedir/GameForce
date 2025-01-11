@@ -3,6 +3,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>seasonsConfigCard</componentName>
+                <identifier>SidebarApps_seasonsConfigCard</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>restoreDefaultConfigCard</componentName>
                 <identifier>SidebarApps_restoreDefaultConfigCard</identifier>
             </componentInstance>

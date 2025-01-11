@@ -1,0 +1,40 @@
+<template>
+    <div class="setupcontent">
+        <section class="slds-box slds-theme_default slds-var-m-bottom_medium">
+            <div class="slds-media slds-media_center">
+                <div class="slds-media__body slds-var-m-right_medium">
+                    <div class="slds-text-heading_small labelArea">
+                        Configure Seasons
+                    </div>
+                    <div class="setup-text">The Seasons feature allows you to configure a set cadence for resetting user
+                        statistics, enabling users to compete on a leaderboard within a specified timeframe. Statistics
+                        gathered by users during the season, including information about achievements reached, will be
+                        saved as historical data. This allows users to become champions of specific seasons. Statistics
+                        gathered before the feature activation will be saved in the "pre-season" category.</div>
+                </div>
+            </div>
+
+            <div class="slds-media slds-media_center">
+                <div class="slds-media__body slds-var-m-right_medium">
+                    <div class="slds-media slds-media_center">
+                        <lightning-layout>
+                            <lightning-layout-item padding="around-small">
+                                <lightning-combobox name="Cadence" label="Seasons cadence" value={originalCadence}
+                                    placeholder="Select" options={cadenceOptions} required
+                                    onchange={handleCadenceChange}></lightning-combobox>
+                            </lightning-layout-item>
+                            <lightning-layout-item padding="around-small">
+                                <lightning-input type="date" name="StartDate" class="startDate" label="Season start date"
+                                    value={originalDate} required onchange={handleDateChange}></lightning-input>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </div>
+                <div>
+                    <lightning-button label={buttonState.label} variant={buttonState.variant}
+                        title={buttonState.label} disabled={buttonState.disabled} onclick={handleClick}></lightning-button>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>

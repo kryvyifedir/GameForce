@@ -1,21 +1,16 @@
 <template>
     <div class="setupcontent">
-        <div class="toggle">
-            <section class="slds-box slds-theme_default slds-var-m-bottom_medium">
-                <div class="slds-media slds-media_center">
-                    <div class="slds-media__body slds-var-m-right_medium">
-                        <div class="slds-text-heading_small labelArea">
-                            {labels.RestoreDefaultsHeader}
-                        </div>
-                        <div class="setup-text">{labels.RestoreDefaultsHelptext}</div>
+        <section class="slds-box slds-theme_default slds-var-m-bottom_medium">
+            <div class="slds-media slds-media_center">
+                <div class="slds-media__body slds-var-m-right_medium">
+                    <div class="slds-text-heading_small labelArea">
+                        {labels.RestoreDefaultsHeader}
                     </div>
-
-                    <div class="package-button">
-                        <button type="button" class="slds-button slds-button_brand"
-                            onclick={handleConfirmClick}>{labels.RestoreButtonLabel}</button>
-                    </div>
+                    <div class="setup-text">{labels.RestoreDefaultsHelptext}</div>
                 </div>
-            </section>
-        </div>
+
+                <lightning-button label={labels.RestoreButtonLabel} variant="brand" title={labels.RestoreButtonLabel} onclick={handleConfirmClick}></lightning-button>
+            </div>
+        </section>
     </div>
 </template>
