@@ -2,6 +2,8 @@ import { LightningElement, wire  } from 'lwc';
 import Toast from 'lightning/toast';
 // APEX Controller methods
 import getSeasonsConfig from '@salesforce/apex/SeasonsCardController.getSeasonsConfig';
+import activateModifySeasons from '@salesforce/apex/SeasonsCardController.activateModifySeasons';
+import deactivateSeasons from '@salesforce/apex/SeasonsCardController.deactivateSeasons';
 
 export default class SeasonsConfigCard extends LightningElement {
 
@@ -18,14 +20,24 @@ export default class SeasonsConfigCard extends LightningElement {
     @wire(getSeasonsConfig)
     wiredSeasonsConfig({ data, error }) {
         if (data) {
-            this.isActive = data.isActive
-            this.originalCadence = data.cadence
-            this.selectedCadence = data.cadence
-            this.originalDate  = data.startDate
-            this.selectedDate = data.startDate
-            this.isConfigLoaded = true
-
+            if (data.Success) {
+                var result = data.Success;
+                this.isActive = result.isActive
+                this.originalCadence = result.cadence
+                this.selectedCadence = result.cadence
+                this.originalDate  = result.startDate
+                this.selectedDate = result.startDate
+                this.isConfigLoaded = true
+            } else if (data.Error) {
+                console.log(JSON.stringify(data.Error))
+                Toast.show({
+                    label: 'Something went wrong...',
+                    message: 'We were unable to retrieve current Seasons Configuration. Please, try reloading the page.',
+                    variant: 'error'
+                }, this)
+            }
         } else if (error) {
+            console.log(JSON.stringify(error))
             Toast.show({
                 label: 'Something went wrong...',
                 message: 'We were unable to retrieve current Seasons Configuration. Please, try reloading the page.',
@@ -61,13 +73,70 @@ export default class SeasonsConfigCard extends LightningElement {
         return false;
     }
 
-    handleClick(event) {
-        if (!this.isActive) {
-            console.log('activate action')
-        } else if (this.isModified) {
-            console.log('modify action')
+    async handleClick(event) {
+        if (!this.isActive || this.isModified) {
+            this.handleActivateModify()
         } else {
-            console.log('delete action')
+            this.handleDeactivate()
+        }
+    }
+
+    async handleActivateModify() {
+        try {
+            var result = await activateModifySeasons({ cadence: this.selectedCadence, startDate: this.selectedDate });
+            if (result.Success) {
+                Toast.show({
+                    label: this.isActive ? 'Modified' : 'Activated',
+                    message: this.isActive ? 'Seasons cadence modified successfully' : 'Seasons feature activated successfully',
+                    variant: 'success'
+                }, this)
+                this.originalCadence = this.selectedCadence
+                this.originalDate = this.selectedDate
+                this.isActive = true;
+                this.isModified = false;
+            } else if (result.Error) {
+                console.log(JSON.stringify(data.Error))
+                Toast.show({
+                    label: 'Something went wrong...',
+                    message: 'We were not able to activate or modify Seasons Feature. Please try refreshing the page and/or contact your System Administrator',
+                    variant: 'error'
+                }, this)
+            }
+        } catch (error) {
+            console.log(JSON.stringify(error))
+            Toast.show({
+                label: 'Something went wrong...',
+                message: 'We were not able to activate or modify Seasons Feature. Please try refreshing the page and/or contact your System Administrator',
+                variant: 'error'
+            }, this)
+        }
+    }
+
+    async handleDeactivate() {
+        try {
+            var result = await deactivateSeasons();
+            if (result.Success) {
+                Toast.show({
+                    label: 'Deactivated',
+                    message: 'Seasons feature deactivated successfully',
+                    variant: 'success'
+                }, this)
+                this.isActive = false;
+            } else if (result.Error) {
+                console.log(JSON.stringify(data.Error))
+                Toast.show({
+                    label: 'Something went wrong...',
+                    message: 'We were not able to deactivate Seasons Feature. Please try refreshing the page and/or contact your System Administrator',
+                    variant: 'error'
+                }, this)
+            }
+        } catch (error) {
+            console.log(JSON.stringify(error))
+            Toast.show({
+                label: 'Something went wrong...',
+                message: 'We were not able to deactivate Seasons Feature. Please try refreshing the page and/or contact your System Administrator',
+                variant: 'error'
+            }, this)
         }
     }
 
